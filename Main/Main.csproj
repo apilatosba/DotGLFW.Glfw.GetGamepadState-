@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>annotations</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- GL.cs configuration options! -->
+
+    <!-- Profile: CORE/COMPAT -->
+    <!-- COMPAT not implemented yet -->
+    <OpenGLProfile>CORE</OpenGLProfile>
+
+    <!-- Version: Any valid OpenGL version from 1.0-4.6 -->
+    <OpenGLVersionMajor>4</OpenGLVersionMajor>
+    <OpenGLVersionMinor>6</OpenGLVersionMinor>
+
+    <!-- Defining exposed wrapper API (SAFE/UNSAFE/BOTH) -->
+    <!-- SAFE: Only safe functions are exposed -->
+    <!-- UNSAFE: Only unsafe functions are exposed -->
+    <!-- BOTH: Both safe and unsafe functions are exposed -->
+    <OpenGLWrapperAPI>BOTH</OpenGLWrapperAPI>
+
+    <!-- Defining constants for compile time availability of APIs -->
+    <DefineConstants>$(DefineConstants);OGL_V_$(OpenGLVersionMajor)_$(OpenGLVersionMinor);OGL_P_$(OpenGLProfile);OGL_WRAPPER_API_$(OpenGLWrapperAPI)</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dotglfw" Version="1.0.2" />
+  </ItemGroup>
+
+</Project>
