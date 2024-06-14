@@ -31,7 +31,8 @@ namespace Main {
          Glfw.MakeContextCurrent(window);
          Import(Glfw.GetProcAddress);
 
-         Glfw.GetGamepadState(Joystick.Joystick1, out GamepadState state); // Crashes
+         // This line crashes the program
+         Glfw.GetGamepadState(Joystick.Joystick1, out GamepadState state);
 
          while (!Glfw.WindowShouldClose(window)) {
             Glfw.PollEvents();
